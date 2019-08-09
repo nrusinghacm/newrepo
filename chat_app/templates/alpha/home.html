@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>chat pannel </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'chat.css'%}">
+    <script src="ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+  </head>
+  <body>
+  <div class="chat-body" class="pannel pannel-default">
+    <div class="pannel-heading">Chat Box  </div>
+    <div class="pannel-body" id="msg-list-div">
+      <ul id="msg-list" class="list-group">
+        {% for obj in chat %}
+          {% if obj.user == request.user %}
+          <li class="text-right list-group-item">{{obj.message}}</li>
+          {%else%}
+          <li class="text-left list-group-item">{{obj.message}}</li>
+          {% endif %}
+          {% empty %}
+          <li class="text-right list-group-item">No message yet !</li>
+          {% endfor %}
+          <script>
+            var chatlist=document.getElementByID('msg-list-div');
+            chatlist.scrollTop = chatlist.scrollHeight;
+          </script>
+      </ul>
+      </div>
+  </div>
+  <form id="chat-form" action="/post" method="post">
+    <div id="chat-bottom" class="iput-group">
+      <input type="text" id="chat-msg" name="chat-msg" value="" class="flow-control">
+      <span class="input-group-btn">
+        <input type="submit" id="send" class="btn btn-defsult" name="" value="send">
+      </span>
+    </div>
+  </form>
+  </body>
+  <script src="{% static 'chat.js' %}"></script>
+</html>
