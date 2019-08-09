@@ -1,0 +1,29 @@
+.content{
+  width:60%;
+  float:left;
+  padding: 0 0 0 30px ;  /* top right,,bottom, left*/
+  background: red;
+  height: 100%;
+}
+.sidebar{
+  width: 40%;
+  float: right;
+  padding: 10px;/*alla sidebar*/
+  background: green;
+  height: 100%;
+
+}
+h1,{
+  text-align: center;
+  border-bottom: 2px solid #bbb;
+  padding-bottom: 5px;
+
+}
+body{
+  color: white;
+}
+#date{
+  color: yellow;
+  font-size: 12px;
+  font-style: italic;
+}
