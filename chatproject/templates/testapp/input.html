@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style >
+      body{
+        backgroud:purple;
+      }
+    </style>
+  </head>
+  <body bgcolor="purple">
+    <form  method="post">
+      {{chat1form}}
+      {%csrf_token%}
+      <input type="submit" name="" value="submit">
+    </form>
+    {{response1}}
+    <form class="" action="" method="post">
+      {{chat2form}}
+      {%csrf_token%}
+      <input type="submit" name="" value="submit">
+    </form>
+    {{response2}}
+
+  </body>
+</html>
