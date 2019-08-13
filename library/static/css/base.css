@@ -1,0 +1,29 @@
+.content{
+
+  padding: 50px 0 0 30px ;
+  align: center;
+  }
+
+h1,{
+  text-align: center;
+  border-bottom: 2px solid #bbb;
+  padding-bottom: 5px;
+
+}
+body{
+  color: red;
+  background: white;
+  font-family: arial sans-serif;
+}
+nav div a{
+  background-color: black;
+  overflow: hidden;
+  color: white;
+  padding: 15px 20px;
+
+}
+nav div a:hover{
+  background-color: green;
+border-radius: 20px;
+
+}

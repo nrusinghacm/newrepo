@@ -1,0 +1,11 @@
+{%extends "testapp/base.html"%}
+{% load crispy_forms_tags %}
+  {%block content%}
+  <h1>Transaction Form</h1><br><br>
+    <form method="post">
+      {{form|crispy}}
+        {% csrf_token %}
+
+        <input type="submit" class="btn btn-success btn-lg "value="submit">
+    </form>
+    {%endblock%}
