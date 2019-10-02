@@ -1,0 +1,58 @@
+{%extends "testapp/base.html"%}
+{% load crispy_forms_tags %}
+  {%block content%}
+        <div class="container">
+          <h1>Search Resturant information</h1>
+          <form  action="/home/" method="post">
+            {{form|crispy}}
+            {% csrf_token %}
+            <div class="form-group">
+              <div class="col-lg-5">
+                <input type="text" name="srh" class="form-control" placeholder="Enter city or locality">
+              </div><br>
+              <label class="col-lg-2">
+                  <button type="submit" class="btn btn-success"> Search </button>
+              </label>
+            </div>
+
+          </form><br><br>
+          <div>
+            {% if messages %}
+            <ul class="messages">
+              {% for k in messages %}
+              <li style="color:red">{{ k }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div><br>
+
+          <div style="color:blue">
+            {% if sr %}
+              {% for k in sr %}
+              <table border="0px" width ="400px">
+                <tr>
+                  <td>Restaurant Id</td>
+                  <td>{{k.res_id}}</td>
+                </tr>
+
+                <tr>
+                  <td>Address</td>
+                  <td>{{k.address}}</td>
+                </tr>
+                <tr>
+                  <td>Locality</td>
+                  <td>{{k.locality}}</td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td>{{k.city}}</td>
+                </tr>
+              </table>
+              <hr>
+                  {% endfor %}
+                  {% endif %}
+          </div>
+
+        </div>
+        {% include 'testapp/pagination.html' with page=sr  %}
+    {%endblock%}

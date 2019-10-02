@@ -1,0 +1,4 @@
+To run this project install the following dependancies.
+1. crispy form
+2. json module
+3. requst module
